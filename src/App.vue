@@ -18,12 +18,19 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: "Raleway", sans-serif;
 }
+
 html,
-body {
-  height: 100%;
+body,
+#app {
+  height: calc(100% - 75px);
   margin: 0;
   padding: 0;
 }
