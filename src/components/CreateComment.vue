@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="addComment">
+    <form @submit.prevent="addComment" :key="$apollo.loading">
       <Input type="text" placeholder="enter comment" v-model="comment"/>
       <Button
         type="submit"
@@ -56,6 +56,7 @@ export default {
           });
         },
       });
+      this.comment = '';
     },
   },
 };
