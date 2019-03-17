@@ -2,12 +2,22 @@
   <div>
     <label :for="label">{{label}}:</label>
     <input
+      v-if="!textArea"
       :type="type"
       :id="label"
       :placeholder="placeholder"
       v-model="content"
       @input="handleInput"
     >
+    <textarea
+      rows="10"
+      v-if="textArea"
+      :type="type"
+      :id="label"
+      :placeholder="placeholder"
+      v-model="content"
+      @input="handleInput"
+    ></textarea>
   </div>
 </template>
 
@@ -18,6 +28,7 @@ export default {
     label: String,
     type: String,
     placeholder: String,
+    textArea: Boolean,
   },
   data() {
     return {
@@ -38,12 +49,14 @@ label {
   margin: $spacing/2 0;
 }
 
-input {
+input,
+textarea {
   padding: $spacing;
   margin-bottom: $spacing;
   width: 100%;
   background-color: $input-bkg;
   border-radius: 8px;
   border: 0;
+  font-family: inherit;
 }
 </style>

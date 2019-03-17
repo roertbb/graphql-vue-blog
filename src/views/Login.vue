@@ -4,9 +4,8 @@
       <h1>Login</h1>
       <Input label="email" type="text" placeholder="enter email" v-model="email"/>
       <Input label="password" type="password" placeholder="enter password" v-model="password"/>
-      <Button type="submit">Login</Button>
-      <p v-if="loading">loading...</p>
-      <p>{{parsedErrors}}</p>
+      <Button type="submit" :disabled="loading" loading-message="Logging in...">Login</Button>
+      <p class="error-message">{{parsedErrors}}</p>
     </form>
   </div>
 </template>
@@ -38,7 +37,6 @@ export default {
   },
   methods: {
     async login() {
-      console.log(this.email, this.password);
       try {
         this.loading = true;
         const result = await this.$apollo.mutate({

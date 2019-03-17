@@ -1,22 +1,41 @@
 <template>
   <header>
     <nav>
-      <a href="/">
-        <h3>Blog</h3>
-      </a>
+      <h3>Graph-Vue-Blog</h3>
+
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
     </nav>
 
     <nav>
-      <router-link to="/login">Login</router-link>
-      <router-link to="/register">Register</router-link>
+      <router-link v-if="!loggedIn" to="/login">Login</router-link>
+      <router-link v-if="!loggedIn" to="/register">Register</router-link>
+
+      <router-link v-if="loggedIn" to="/create-post">Create Post</router-link>
+      <a @click.prevent="logout" v-if="loggedIn" href="/">Logout</a>
     </nav>
   </header>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      loggedIn: undefined,
+    };
+  },
+  mounted() {
+    const token = localStorage.getItem('token');
+    if (token) this.loggedIn = true;
+    else this.loggedIn = false;
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem('token');
+      this.$router.push({ name: 'login' });
+    },
+  },
+};
 </script>
 
 <style lang="scss">

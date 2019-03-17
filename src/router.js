@@ -28,5 +28,10 @@ export default new Router({
       name: 'register',
       component: () => import(/* webpackChunkName: "register" */ './views/Register.vue'),
     },
+    {
+      path: '/create-post',
+      name: 'createPost',
+      component: () => import(/* webpackChunkName: "register" */ './views/CreatePost.vue'),
+    },
   ],
 });

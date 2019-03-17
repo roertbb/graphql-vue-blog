@@ -5,9 +5,8 @@
       <Input label="email" type="text" placeholder="enter email" v-model="email"/>
       <Input label="nick" type="text" placeholder="enter nick" v-model="nick"/>
       <Input label="password" type="password" placeholder="enter password" v-model="password"/>
-      <Button type="submit">Login</Button>
-      <p v-if="loading">loading...</p>
-      <p>{{parsedErrors}}</p>
+      <Button type="submit" :disabled="loading" loading-message="Registering...">Register</Button>
+      <p class="error-message">{{parsedErrors}}</p>
     </form>
   </div>
 </template>
@@ -40,7 +39,6 @@ export default {
   },
   methods: {
     async register() {
-      console.log(this.email, this.nick, this.password);
       try {
         this.loading = true;
         const result = await this.$apollo.mutate({

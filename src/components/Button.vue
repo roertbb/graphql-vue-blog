@@ -1,6 +1,7 @@
 <template>
-  <button>
-    <slot></slot>
+  <button :disabled="disabled">
+    <template v-if="disabled">{{loadingMessage}}</template>
+    <slot v-else></slot>
   </button>
 </template>
 
@@ -8,6 +9,8 @@
 export default {
   props: {
     text: String,
+    disabled: Boolean,
+    loadingMessage: String,
   },
 };
 </script>
@@ -22,5 +25,9 @@ button {
   width: 100%;
   cursor: pointer;
   font-size: 1.25rem;
+
+  &:disabled {
+    background-color: $disabled;
+  }
 }
 </style>
