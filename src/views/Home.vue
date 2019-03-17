@@ -1,10 +1,15 @@
 <template>
-  <main>
-    <h1>Recent Posts</h1>
-    <section class="posts-container">
-      <PostCard v-for="post in posts" :key="post.id" :post="post"></PostCard>
-    </section>
-  </main>
+  <div class="fullheight">
+    <main class="flex-container" v-if="$apollo.loading">
+      <div class="spinner"></div>
+    </main>
+    <main v-if="posts">
+      <h1 class="heading">Recent Posts</h1>
+      <section class="posts-container">
+        <PostCard v-for="post in posts" :key="post.id" :post="post"></PostCard>
+      </section>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -65,16 +70,6 @@ export default {
 </script>
 
 <style lang="scss">
-main {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-
-  h1 {
-    text-align: center;
-  }
-}
-
 .posts-container {
   display: flex;
   flex-wrap: wrap;

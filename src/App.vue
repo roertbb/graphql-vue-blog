@@ -30,7 +30,7 @@ html {
 html,
 body,
 #app {
-  height: calc(100% - 75px);
+  height: 100%;
   margin: 0;
   padding: 0;
 }

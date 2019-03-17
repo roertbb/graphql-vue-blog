@@ -1,10 +1,9 @@
 <template>
   <header>
     <nav>
-      <h3>Graph-Vue-Blog</h3>
-
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
+      <router-link to="/">
+        <h3>Graph-Vue-Blog</h3>
+      </router-link>
     </nav>
 
     <nav>

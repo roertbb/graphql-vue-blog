@@ -1,8 +1,10 @@
+@import './spinner';
+
 .flex-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: calc(100% - 75px);
 
   form {
     width: 80%;
@@ -27,4 +29,30 @@
 .success-message {
   @extend .message;
   color: $success;
+}
+
+main {
+  padding-top: $spacing * 2;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+
+  .heading {
+    margin: $spacing;
+  }
+}
+
+.post-heading {
+  background-size: cover;
+  background-position: center center;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  border-radius: $spacing;
+}
+
+.fullheight {
+  height: calc(100% - 75px);
 }

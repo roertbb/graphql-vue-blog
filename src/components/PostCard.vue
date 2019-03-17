@@ -25,18 +25,11 @@ export default {
 
 <style lang="scss">
 .box {
-  background-image: url("https://images.unsplash.com/photo-1503252947848-7338d3f92f31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
-  background-size: cover;
-  background-position: center center;
-  color: $white;
+  @extend .post-heading;
   height: 250px;
   flex-basis: calc(50% - #{$spacing});
   margin: $spacing / 2;
   padding: $spacing;
-  border-radius: $spacing;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   text-decoration: none;
   transition: opacity 0.25s ease-in-out;
 
