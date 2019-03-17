@@ -14,8 +14,8 @@
 
 <script>
 import Input from '@/components/Input.vue';
-import Button from '../components/Button.vue';
-import gql from 'graphql-tag';
+import Button from '@/components/Button.vue';
+import CREATE_POST from '@/graphql/createPost.graphql';
 
 export default {
   components: {
@@ -45,23 +45,7 @@ export default {
       }
 
       const resp = await this.$apollo.mutate({
-        mutation: gql`
-          mutation(
-            $title: String!
-            $content: String!
-            $cover: String!
-            $authorId: ID!
-          ) {
-            createPost(
-              title: $title
-              content: $content
-              cover: $cover
-              authorId: $authorId
-            ) {
-              id
-            }
-          }
-        `,
+        mutation: CREATE_POST,
         variables: {
           title: this.title,
           content: this.content,

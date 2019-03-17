@@ -1,0 +1,22 @@
+query($postId: ID!) {
+  post: Post(id: $postId) {
+    id
+    title
+    cover
+    content
+    createdAt
+    author {
+      id
+      nick
+    }
+    comments(orderBy: createdAt_DESC) {
+      id
+      content
+      createdAt
+      author {
+        id
+        nick
+      }
+    }
+  }
+}

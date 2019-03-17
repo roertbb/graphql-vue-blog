@@ -1,0 +1,15 @@
+subscription {
+  Post(filter: { mutation_in: [CREATED, UPDATED, DELETED] }) {
+    node {
+      id
+      title
+      content
+      cover
+      createdAt
+      author {
+        id
+        nick
+      }
+    }
+  }
+}

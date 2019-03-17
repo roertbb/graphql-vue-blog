@@ -1,0 +1,18 @@
+subscription($id: ID!) {
+  Comment(
+    filter: {
+      mutation_in: [CREATED, UPDATED, DELETED]
+      node: { post: { id: $id } }
+    }
+  ) {
+    node {
+      id
+      content
+      createdAt
+      author {
+        id
+        nick
+      }
+    }
+  }
+}

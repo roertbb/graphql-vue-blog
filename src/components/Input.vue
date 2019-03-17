@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label :for="label">{{label}}:</label>
+    <label v-if="label" :for="label">{{label}}:</label>
     <input
       v-if="!textArea"
       :type="type"

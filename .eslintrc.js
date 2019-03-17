@@ -1,19 +1,17 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   extends: ['plugin:vue/essential', '@vue/airbnb'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'import/no-extraneous-dependencies': [
-      'error',
-      { devDependencies: true, optionalDependencies: true, peerDependencies: true }
-    ],
-    'max-len': ['error', { code: 180 }]
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true, optionalDependencies: true, peerDependencies: true }],
+    'max-len': ['error', { code: 180 }],
   },
   parserOptions: {
-    parser: 'babel-eslint'
-  }
+    parser: 'babel-eslint',
+  },
+  plugins: ['graphql'],
 };

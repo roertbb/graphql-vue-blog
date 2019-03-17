@@ -1,0 +1,13 @@
+query {
+  posts: allPosts(orderBy: createdAt_DESC) {
+    id
+    title
+    content
+    cover
+    createdAt
+    author {
+      id
+      nick
+    }
+  }
+}

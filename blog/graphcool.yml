@@ -50,6 +50,7 @@ functions:
 # https://www.graph.cool/docs/reference/auth/authorization/overview-iegoo0heez
 permissions:
   - operation: Post.read
+  - operation: Comment.read
 
   - operation: User.read
     fields:
@@ -72,6 +73,26 @@ permissions:
   - operation: UserPosts.connect
     authenticated: true
   - operation: UserPosts.disconnect
+    authenticated: true
+
+  - operation: Comment.create
+    authenticated: true
+
+  - operation: Comment.update
+    authenticated: true
+    query: src/permissions/Comment.graphql:UpdateComment
+
+  - operation: Comment.delete
+    authenticated: true
+    query: src/permissions/Comment.graphql:DeleteComment
+
+  - operation: PostComments.connect
+    authenticated: true
+  - operation: PostComments.disconnect
+    authenticated: true
+  - operation: UserComments.connect
+    authenticated: true
+  - operation: UserComments.disconnect
     authenticated: true
   # - operation: '*'
 # Your root tokens used for functions to get full access to the API
