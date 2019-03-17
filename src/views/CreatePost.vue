@@ -4,6 +4,7 @@
       <h1>Create Post</h1>
       <Input label="title" type="text" placeholder="enter title" v-model="title"/>
       <Input label="content" type="text" placeholder="enter content" textArea v-model="content"/>
+      <Input label="cover" type="text" placeholder="enter cover image URL" v-model="cover"/>
       <Button type="submit" :disabled="loading" loading-message="Creating Post...">Create Post</Button>
       <p class="success-message" v-if="message">{{message}}</p>
       <p class="error-message" v-if="error">{{error}}</p>
@@ -24,6 +25,7 @@ export default {
   data() {
     return {
       title: '',
+      cover: '',
       content: '',
       message: null,
       loading: false,
@@ -36,7 +38,7 @@ export default {
       this.message = '';
       this.loading = true;
 
-      if (this.title === '' || this.content === '') {
+      if (this.title === '' || this.content === '' || this.cover === '') {
         this.error = 'Please fill out Post fields';
         this.loading = false;
         return;
@@ -44,8 +46,18 @@ export default {
 
       const resp = await this.$apollo.mutate({
         mutation: gql`
-          mutation($title: String!, $content: String!, $authorId: ID!) {
-            createPost(title: $title, content: $content, authorId: $authorId) {
+          mutation(
+            $title: String!
+            $content: String!
+            $cover: String!
+            $authorId: ID!
+          ) {
+            createPost(
+              title: $title
+              content: $content
+              cover: $cover
+              authorId: $authorId
+            ) {
               id
             }
           }
@@ -53,6 +65,7 @@ export default {
         variables: {
           title: this.title,
           content: this.content,
+          cover: this.cover,
           authorId: localStorage.getItem('id'),
         },
       });
@@ -60,6 +73,7 @@ export default {
       if (resp.data.createPost.id) {
         this.title = '';
         this.content = '';
+        this.cover = '';
         this.message = 'Successfully created Post!';
       }
 

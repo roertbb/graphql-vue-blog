@@ -14,6 +14,7 @@ type Post @model {
   title: String!
   content: String!
   author: User! @relation(name: "UserPosts")
+  cover: String!
   comments: [Comment!]! @relation(name: "PostComments")
   createdAt: DateTime!
   updatedAt: DateTime!
