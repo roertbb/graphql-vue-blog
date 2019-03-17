@@ -57,6 +57,7 @@ export default {
           },
         });
         this.loading = false;
+        localStorage.setItem('id', result.data.signupUser.id);
         localStorage.setItem('token', result.data.signupUser.token);
         this.$router.push({ name: 'home' });
       } catch ({ graphQLErrors, networkError }) {

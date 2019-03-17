@@ -54,6 +54,7 @@ export default {
           },
         });
         this.loading = false;
+        localStorage.setItem('id', result.data.authenticateUser.id);
         localStorage.setItem('token', result.data.authenticateUser.token);
         this.$router.push({ name: 'home' });
       } catch ({ graphQLErrors, networkError }) {

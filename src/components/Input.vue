@@ -58,5 +58,6 @@ textarea {
   border-radius: 8px;
   border: 0;
   font-family: inherit;
+  font-size: 1rem;
 }
 </style>

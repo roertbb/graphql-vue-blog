@@ -14,8 +14,17 @@
   }
 }
 
-.error-message {
-  color: $error;
+.message {
   text-align: center;
   font-size: 1.25rem;
+}
+
+.error-message {
+  @extend .message;
+  color: $error;
+}
+
+.success-message {
+  @extend .message;
+  color: $success;
 }

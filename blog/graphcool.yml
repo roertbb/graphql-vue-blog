@@ -49,7 +49,31 @@ functions:
 # Read more here:
 # https://www.graph.cool/docs/reference/auth/authorization/overview-iegoo0heez
 permissions:
-  - operation: '*'
+  - operation: Post.read
+
+  - operation: User.read
+    fields:
+      - id
+      - nick
+      - posts
+      - comments
+
+  - operation: Post.create
+    authenticated: true
+
+  - operation: Post.update
+    authenticated: true
+    query: src/permissions/Post.graphql:UpdatePost
+
+  - operation: Post.delete
+    authenticated: true
+    query: src/permissions/Post.graphql:DeletePost
+
+  - operation: UserPosts.connect
+    authenticated: true
+  - operation: UserPosts.disconnect
+    authenticated: true
+  # - operation: '*'
 # Your root tokens used for functions to get full access to the API
 # Read more here:
 # https://www.graph.cool/docs/reference/auth/authentication/authentication-tokens-eip7ahqu5o
