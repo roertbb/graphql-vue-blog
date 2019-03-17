@@ -2,7 +2,7 @@
 
 Small project made for testing how much Vue ❤ GraphQL and Apollo
 
-[Live demo](https://affectionate-borg-29a334.netlify.com/)
+#### [Live demo](https://affectionate-borg-29a334.netlify.com/)
 
 ## Aim:
 
